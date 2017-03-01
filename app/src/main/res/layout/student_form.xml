@@ -11,4 +11,31 @@
         android:id="@+id/textView2"
         tools:text="ADD STUDENT"
         android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text|textPersonName"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:text="ENROL.NO"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="NAME"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText3"
+        tools:text="PHONE NO"
+        android:textAlignment="center" />
 </LinearLayout>
