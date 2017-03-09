@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.olal.sqiltedbforandroid.model.MyWish;
 
@@ -28,8 +29,8 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 //create our table
 
-        String CREATE_WISHES_TABLE = "CREATE TABLE" + Constants.TABLE_NAME +
-                "(" + Constants.KEY_ID + " INTEGER PRIMARY KEY, " + Constants.TITLE_NAME + " TEXT, "
+        String CREATE_WISHES_TABLE = "CREATE TABLE " + Constants.TABLE_NAME + "("
+                + Constants.KEY_ID + " INTEGER PRIMARY KEY, " + Constants.TITLE_NAME + " TEXT, "
                 + Constants.CONTENT_NAME + " TEXT, " + Constants.DATE_NAME + " LONG );";
 
         db.execSQL(CREATE_WISHES_TABLE);
@@ -39,6 +40,8 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME);
+
+        Log.v("ONUPGRADE", "DROP THE TABLE AND CREATING A NEW ONE");
 
         //create a new one
         onCreate(db);
@@ -55,11 +58,15 @@ public class DBHandler extends SQLiteOpenHelper {
             values.put(Constants.DATE_NAME, java.lang.System.currentTimeMillis());
 
             db.insert(Constants.TABLE_NAME, null, values);
+
+
+            Log.v("Wish successful", "yeah!!");
+
             db.close();
         }
 
 
-        //Get all
+        //Get all wishes
 
         public ArrayList<MyWish> getWishes(){
 
@@ -95,3 +102,6 @@ public class DBHandler extends SQLiteOpenHelper {
             return wishList;
         }
 }
+
+
+

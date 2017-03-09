@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         //adding what our users entering in our text
         MyWish wish = new MyWish();
         wish.setTitle(title.getText().toString().trim());
-        wish.setTitle(content.getText().toString().trim());
+        wish.setContent(content.getText().toString().trim());
 
         dba.addWshes(wish);
         dba.close();
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         title.setText("");
         content.setText("");
 
-        Intent i = new Intent(MainActivity.this, WishDetailActivity.class);
+        Intent i = new Intent(MainActivity.this, DisplayWishesActivity.class);
                 startActivity(i);
     }
 }
